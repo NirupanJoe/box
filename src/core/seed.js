@@ -1,3 +1,5 @@
-const seed = {};
+const seed = {
+	boxes: [],
+};
 
 export default seed;
