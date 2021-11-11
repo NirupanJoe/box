@@ -1,20 +1,17 @@
+/* eslint-disable no-magic-numbers */
 import React from 'react';
+// import { useFrame } from '@react-three/fiber';
 
-const boxSize = 0.5;
+const Box = ({ id, position }, ref) =>
+// useFrame(() => (ref.current.rotation.x += 0.01));
 
-const Box = ({ id, position }) => {
-	// eslint-disable-next-line no-console
-	console.log(position);
-
-	return (
-		<mesh
-			key={ id }
-			position={ position }
-		>
-			<boxGeometry args={ [boxSize, boxSize, boxSize] }/>
-			<meshStandardMaterial color="tomato"/>
-		</mesh>
-	);
-};
+	<mesh
+		key={ id }
+		ref={ ref }
+		position={ position }
+	>
+		<sphereBufferGeometry args={ [1, 64, 64] }/>
+		<meshStandardMaterial color="tomato"/>
+	</mesh>;
 
 export default Box;
