@@ -2,7 +2,7 @@
 import React from 'react';
 // import { useFrame } from '@react-three/fiber';
 
-const Box = ({ id, position }, ref) =>
+const Box = ({ id, position, color }, ref) =>
 // useFrame(() => (ref.current.rotation.x += 0.01));
 
 	<mesh
@@ -10,8 +10,8 @@ const Box = ({ id, position }, ref) =>
 		ref={ ref }
 		position={ position }
 	>
-		<sphereBufferGeometry args={ [1, 64, 64] }/>
-		<meshStandardMaterial color="tomato"/>
+		<sphereBufferGeometry args={ [0.5, 64, 64] }/>
+		<meshStandardMaterial color={ `#${ color }` }/>
 	</mesh>;
 
 export default Box;
