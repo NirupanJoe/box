@@ -1,7 +1,7 @@
 import { React } from 'react';
 import { Canvas } from '@react-three/fiber';
 import './App.scss';
-import Boxes from './components/boxes';
+import Box from './components/box';
 import boxService from './services/boxService';
 
 const App = (context) => {
@@ -19,7 +19,7 @@ const App = (context) => {
 		>
 			<Canvas>
 				<ambientLight/>
-				{ Boxes(context) }
+				<Box context={ context }/>
 			</Canvas>
 		</div>
 	);
