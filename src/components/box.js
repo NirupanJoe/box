@@ -1,26 +1,23 @@
 /* eslint-disable no-magic-numbers */
 import React from 'react';
-import { useTransition, a, config } from '@react-spring/three';
+import { a, config, useSprings } from '@react-spring/three';
 
 // eslint-disable-next-line max-lines-per-function
 const Box = ({ context: { state: { boxes }}}) => {
-	const transitions = useTransition(boxes, {
+	const springs = useSprings(boxes.length, boxes.map((item) => ({
 		loop: true,
 		from: {
-			rotation: [0, 0, 0], position: [0, 0, 0], color: 'black',
-		},
-		enter: (item) => ({
-			rotation: [0, 360, 0],
+			rotation: [0, 0, 0],
 			position: item.position,
 			color: `#${ item.color }`,
-		}),
-		keys: (item) => item.id,
+		},
+		rotation: [0, 360, 0],
 		config: config.slow,
-	});
+	})));
 
 	return (
 		<group>
-			{transitions(({ rotation, position, color }) =>
+			{springs.map(({ rotation, position, color }) =>
 				<a.mesh
 					key={ rotation.id }
 					rotation={ rotation }
